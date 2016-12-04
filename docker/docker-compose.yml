@@ -1,0 +1,19 @@
+version: '2'
+services:
+  lemp:
+    image: linuxconfig/lemp
+    container_name: lemp-unad
+    volumes:
+    #   - ~/.ssh/id_rsa.pub:~/.ssh/id_rsa.pu:ro
+      - ../project/:/var/www/html
+    ports:
+      - "8080:80"
+      - "3306:3306"
+    networks:
+      unad:
+        aliases:
+          - lemp-unad
+
+networks:
+  unad:
+    external: true
